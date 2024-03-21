@@ -105,6 +105,8 @@ def start():
     cmd = "bash arm.sh"
     count = 0
     while True:
+        print("🐔🐔{}:{}核:{}G {} 开刷! ".format(
+                        domain, cpu_count, memory_size, shape))
         a = Popen(cmd, shell=True, stdout=PIPE, stderr=PIPE, encoding="utf-8")
         count += 1
         res = a.communicate()[1]

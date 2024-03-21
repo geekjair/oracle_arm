@@ -21,7 +21,7 @@ SHELL_FILENAME = "arm.sh"
 domain = ""
 cpu_count = ""
 memory_size = ""
-
+shape = ""
 
 def telegram(desp):
     data = (('chat_id', TG_USER_ID), ('text', '🏆ARM开通脚本🏆\n\n' + desp))
@@ -96,6 +96,8 @@ def tf_parser(buf):
 
 
 def start():
+    print("🐔🐔{}:{}核:{}G {} 开刷! ".format(
+                        domain, cpu_count, memory_size, shape))
     if USE_TG:
         telegram("🐔🐔{}:{}核:{}G 开刷! ".format(
                         domain, cpu_count, memory_size))
@@ -108,6 +110,8 @@ def start():
         print(res)
         if 'LimitExceeded' in res:
             print(u"脚本配置失败或者已经成功创建机器")
+            print("经过{}次注册后,{}:{}核:{}G🐔🐔 似乎注册成功,请上后台查看确认吧".format(
+                    count, domain, cpu_count, memory_size))
             if USE_TG:
                 telegram("经过{}次注册后,{}:{}核:{}G🐔🐔 似乎注册成功,请上后台查看确认吧".format(
                     count, domain, cpu_count, memory_size))

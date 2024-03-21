@@ -38,6 +38,7 @@ def tf_parser(buf):
     global domain
     global cpu_count
     global memory_size
+    global shape
 
     ssh_rsa_pat = re.compile('"ssh_authorized_keys" = "(.*)"')
     ssh_rsa = ssh_rsa_pat.findall(buf).pop()
